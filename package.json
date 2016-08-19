@@ -2,7 +2,7 @@
   "name": "smart-home-with-openshift",
   "version": "0.0.1",
   "description": "smart-home-with-openshift client using socket.io",
-  "main": "index.js",
+  "main": "server.js",
   "author": "Gnsoft",
   "private": true,
   "license": "BSD",
