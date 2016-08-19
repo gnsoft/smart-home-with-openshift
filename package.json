@@ -1,13 +1,26 @@
 {
-  "name": "boxo",
+  "name": "smart-home-with-openshift",
   "version": "0.0.1",
-  "description": "A simple chat client using socket.io",
+  "description": "smart-home-with-openshift client using socket.io",
   "main": "index.js",
-  "author": "ginhd",
+  "author": "Gnsoft",
   "private": true,
   "license": "BSD",
   "dependencies": {
-    "express": "^3.4.8",
-    "socket.io": "^1.2.0"
-  }
+    "express": "^3.4.8",//
+    "socket.io": "^1.2.0"//
+  },
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gnsoft/smart-home-with-openshift.git"
+  },
+  "homepage": "https://github.com/gnsoft/smart-home-with-openshift"
 }
