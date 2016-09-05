@@ -1,7 +1,7 @@
 {
   "name": "nodejs-ex",
   "version": "0.0.1",
-  "description": "Node.js sample app for OpenShift 3",
+  "description": "Node.js Smart Home app for OpenShift 3",
   "main": "server.js",
   "dependencies": {
     "chai": "^3.5.0",
@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/openshift/nodejs-ex.git"
+    "url": "https://github.com/gnsoft/smart-home-with-openshift.git"
   },
-  "author": "Steve Speicher <sspeiche@gmail.com>",
-  "license": "CC-BY-1.0",
+  "author": "GnSoft <mobileteamdeveloper@gmail.com>",
+  "license": "",
   "bugs": {
-    "url": "http://github.com/openshift/nodejs-ex/issues"
+    "url": ""
   },
-  "homepage": "http://github.com/openshift/nodejs-ex"
+  "homepage": "http://smart-home-a1.0ec9.hackathon.openshiftapps.com/"
 }
