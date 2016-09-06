@@ -1,9 +1,9 @@
-// Setup basic express server
+//@GnSoft 2016 (mobileteamdeveloper@gmail.com)
+//Setup express server
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-//var port = process.env.PORT || 3000;
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
@@ -13,6 +13,9 @@ server.listen(port, function () {
 
 // Routing
 app.use(express.static(__dirname + '/views'));
+/*app.get('/home', function (req, res) {
+  res.sendfile(__dirname + '/views/home.html');
+});*/
 
 //
 var homeStatus = {};
@@ -60,10 +63,10 @@ io.on('connection', function(socket){
 			sendHomeStatusToDevice();
 		}
 	});
+	//
+	function sendHomeStatusToDevice(){
+		console.log("homeStatus-ServerToDevice, homeRegistered:"+homeStatus.homeRegistered);
+		socket.emit('homeStatus-ServerToDevice', homeStatus);
+	}
 });
 
-//
-function sendHomeStatusToDevice(){
-	console.log("homeStatus-ServerToDevice, homeRegistered:"+homeStatus.homeRegistered);
-	io.sockets.emit('homeStatus-ServerToDevice', homeStatus);
-}
