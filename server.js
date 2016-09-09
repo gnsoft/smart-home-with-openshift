@@ -28,7 +28,7 @@ io.on('connection', function(socket){
 		console.log("homeRegister");
 		socket.mame = "home";
 		homeStatus = data;
-		sendHomeStatusToDevice();
+		sendHomeStatusToDevice(true);
 	});
 	//
 	socket.on('deviceRegister', function(data){
@@ -60,13 +60,17 @@ io.on('connection', function(socket){
 	socket.on('disconnect', function(){
 		if(socket.mame == "home"){
 			homeStatus.homeRegistered = false;
-			sendHomeStatusToDevice();
+			sendHomeStatusToDevice(true);
 		}
 	});
 	//
-	function sendHomeStatusToDevice(){
+	function sendHomeStatusToDevice(myHome){
 		console.log("homeStatus-ServerToDevice, homeRegistered:"+homeStatus.homeRegistered);
-		socket.emit('homeStatus-ServerToDevice', homeStatus);
+		if(myHome){
+			io.sockets.emit('homeStatus-ServerToDevice', homeStatus);
+		} else{
+			socket.emit('homeStatus-ServerToDevice', homeStatus);
+		}
 	}
 });
 
